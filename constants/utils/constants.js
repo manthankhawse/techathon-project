@@ -208,4 +208,30 @@ export const examDetails = {
     ],
     API: "http://172.16.128.219:3000/recommend/CET",
   },
+  CAT: {
+    fields: [
+      {
+        name: "category",
+        type: "menu",
+        options: ["General", "OBC", "SC", "ST", "PWD"],
+      },
+      {
+        name: "lrdi",
+        type: "text",
+      },
+      {
+        name: "qa",
+        type: "text",
+      },
+      {
+        name: "varc",
+        type: "text",
+      },
+      {
+        name: "overall",
+        type: "text",
+      },
+    ],
+    API: "http://172.16.128.219:3000/recommend/CAT",
+  }
 };
