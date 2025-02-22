@@ -1,93 +1,3 @@
-// export const examDetails = {
-//   JEE: {
-//     fields: [
-//       {
-//         name: "category",
-//         type: "radio",
-//         options: [
-//           "OPEN",
-//           "EWS",
-//           "OBC-NCL",
-//           "SC",
-//           "ST",
-//           "OPEN (PWD)",
-//           "EWS (PWD)",
-//           "OBC-NCL (PWD)",
-//           "SC (PWD)",
-//           "ST (PWD)",
-//         ],
-//       },
-//       {
-//         name: "jee_rank",
-//         type: "text",
-//       },
-//       {
-//         name: "gender",
-//         type: "radio",
-//         options: ["Gender-Neutral", "Female-Only (including supernumerary)"],
-//       },
-//       {
-//         name: "programs",
-//         type: "dropdown",
-//         options: [
-//           "Bio Technology",
-//           "Chemical Engineering",
-//           "Civil Engineering",
-//           "Computer Science and Engineering",
-//           "Electrical Engineering",
-//           "Electronics and Communication Engineering",
-//           "Industrial and Production Engineering",
-//           "Information Technology",
-//           "Instrumentation and Control Engineering",
-//           "Mechanical Engineering",
-//           "Textile Technology",
-//           "Architecture",
-//           "Metallurgical and Materials Engineering",
-//           "Materials Science and Metallurgical Engineering",
-//           "Mathematics and Data Science",
-//           "Planning",
-//           "Production and Industrial Engineering",
-//           "Biotechnology and Biochemical Engineering",
-//           "Chemistry",
-//           "Computational Mathematics",
-//           "Electronics and Instrumentation Engineering",
-//           "Engineering Physics",
-//           "Mathematics & Computing",
-//           "Physics",
-//           "Production Engineering",
-//           "Electrical and Electronics Engineering",
-//           "Engineering Physics",
-//           "Materials Science and Engineering",
-//           "Biotechnology",
-//           "Chemical Engineering",
-//           "Chemistry",
-//           "Computer Science and Engineering",
-//           "Electronics and Communication Engineering",
-//           "Mathematics and Computing",
-//           "Artificial Intelligence",
-//           "Mining Engineering",
-//           "Biomedical Engineering",
-//           "Computer Engineering",
-//           "Ceramic Engineering",
-//           "Ceramic Engineering and M.Tech Industrial Ceramic",
-//           "Food Process Engineering",
-//           "Industrial Design",
-//           "Life Science",
-//           "Mathematics",
-//           "Metallurgical and Materials Engineering",
-//           "Mining Engineering",
-//           "Physics",
-//           "Aerospace Engineering",
-//           "Electronics and Telecommunication Engineering",
-//           "Metallurgy and Materials Engineering",
-//         ]
-//       },
-//     ],
-//     API: "http://172.16.128.219:3000/recommend/JEE",
-//   },
-// };
-
-
 export const examDetails = {
   JEE: {
     fields: [
@@ -233,5 +143,19 @@ export const examDetails = {
       },
     ],
     API: "http://172.16.128.219:3000/recommend/CAT",
+  },
+  NEET: {
+    fields: [
+      {
+        name: "category",
+        type: "menu",
+        options: ["General", "EWS", "OBC", "SC", "ST"],
+      },
+      {
+        name:"rank",
+        type: "text"
+      }
+    ],
+    API: "http://172.16.128.219:3000/recommend/NEET",
   }
 };
