@@ -8,6 +8,7 @@ import tw from 'tailwind-react-native-classnames'
 import courses from '../assets/images/online-learning.png'
 import logo from '../assets/images/discussion.png';
 import { useNavigation } from '@react-navigation/native'
+import { Button, ButtonText } from '@/components/ui/button'
 
 const MenuItems = [
   {
@@ -58,6 +59,10 @@ export default function index() {
         </TouchableOpacity>
         )}
     />
+
+    <Button>
+      <ButtonText>press me</ButtonText>
+    </Button>
     </SafeAreaView>
   )
 }
