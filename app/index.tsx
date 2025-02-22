@@ -6,7 +6,7 @@ import college from '../assets/images/college.png'
 import recommendation from '../assets/images/social-media.png'
 import tw from 'tailwind-react-native-classnames'
 import courses from '../assets/images/online-learning.png'
-import logo from '../assets/images/discussion.png';
+import logo from '../assets/images/Final_logo.png';
 import { useNavigation } from '@react-navigation/native'
 import { Button, ButtonText } from '@/components/ui/button'
 
@@ -41,7 +41,7 @@ export default function index() {
     <SafeAreaView>
       <View style={tw`flex flex-row items-start justify-center flex py-14`}>
         <View style={tw`flex flex-row items-center`}>
-        <Image source={logo} style={tw`h-12 w-12 p-3 mx-3`}/>
+        <Image source={logo} style={tw`h-12 w-16 p-3 mx-3`}/>
         <Text style={[tw`text-4xl text-white font-bold`]}>Name</Text>
         </View>
       </View>
@@ -60,10 +60,14 @@ export default function index() {
         )}
     />
 
+        
+    <Link href="/login" asChild>
     <Button>
       <ButtonText>press me</ButtonText>
     </Button>
+    </Link>
     </SafeAreaView>
+
   )
 }
 
