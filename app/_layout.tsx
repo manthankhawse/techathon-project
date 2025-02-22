@@ -31,7 +31,7 @@ export default function RootLayout() {
   }
 
   return (
-    <GluestackUIProvider mode="light"><GestureHandlerRootView style={{flex:1}}>
+    <GluestackUIProvider mode="dark"><GestureHandlerRootView style={{flex:1}}>
         <SafeAreaProvider>
             <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
               <Stack>
@@ -39,7 +39,9 @@ export default function RootLayout() {
                 <Stack.Screen name="chat" options={{ headerShown: false }} />
                 <Stack.Screen name="recommendations" options={{headerShown:false}}/>
                 <Stack.Screen name="courses" options={{headerShown:false}}/>
+                <Stack.Screen name="[exam]" options={{headerShown: false}}/>
                 <Stack.Screen name="+not-found" />
+
               </Stack>
               <StatusBar style="auto" />
             </ThemeProvider>
