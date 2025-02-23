@@ -83,7 +83,7 @@ export const examDetails = {
         ]
       },
     ],
-    API: "http://172.16.128.219:3000/recommend/JEE",
+    API: "http://172.16.132.222:3000/recommend/JEE",
   },
   CET: {
     fields: [
@@ -116,7 +116,7 @@ export const examDetails = {
         ],
       },
     ],
-    API: "http://172.16.128.219:3000/recommend/CET",
+    API: "http://172.16.132.222:3000/recommend/CET",
   },
   CAT: {
     fields: [
@@ -142,7 +142,7 @@ export const examDetails = {
         type: "text",
       },
     ],
-    API: "http://172.16.128.219:3000/recommend/CAT",
+    API: "http://172.16.132.222:3000/recommend/CAT",
   },
   NEET: {
     fields: [
@@ -156,6 +156,49 @@ export const examDetails = {
         type: "text"
       }
     ],
-    API: "http://172.16.128.219:3000/recommend/NEET",
-  }
+    API: "http://172.16.132.222:3000/recommend/NEET",
+  },
+  BITSAT: {
+    fields:[
+      {
+        name: 'marks',
+        type: 'text'
+      },
+      {
+        name: 'branch_interests',
+        type: 'dropdown',
+        options: [
+          'Chemical',
+          'Civil',
+          'Electrical & Electronics',
+          'Mechanical',
+          'Computer Science',
+          'Electronics & Instrumentation',
+          'Electronics & Communication',
+          'Manufacturing',
+          'B. Pharm',
+          'Biological Sciences',
+          'Chemistry',
+          'Economics',
+          'Mathematics',
+          'Physics'
+        ]
+      }
+    ],
+    API:"http://172.16.132.222:3000/recommend/BITSAT"
+  },
+  LAW: {
+    fields: [
+      {
+        name: "category",
+        type: "menu",
+        options: ["General", "OBC", "SC", "ST"],
+      },
+      {
+        name:"rank",
+        type: "text"
+      }
+    ],
+    API: "http://172.16.132.222:3000/recommend/LAW",
+  },
 };
