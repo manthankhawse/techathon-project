@@ -10,6 +10,7 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { UserProvider } from '@/context/UserContext';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -31,6 +32,7 @@ export default function RootLayout() {
   }
 
   return (
+    <UserProvider>
     <GluestackUIProvider mode="light"><GestureHandlerRootView style={{flex:1}}>
         <SafeAreaProvider>
             <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
@@ -51,5 +53,6 @@ export default function RootLayout() {
             </ThemeProvider>
         </SafeAreaProvider>
       </GestureHandlerRootView></GluestackUIProvider>
+      </UserProvider>
   );
 }

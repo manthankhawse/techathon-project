@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { View, Text, TextInput, Button, FlatList, StyleSheet, TouchableOpacity, Image, Linking, Animated } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from '../assets/images/Logo_white.png';
 import Modal from 'react-native-modal';  // Add this for the bottom sheet effect
+import UserContext from '@/context/UserContext';
+import { useNavigation } from 'expo-router';
 
 export default function Courses() {
   const [inputText, setInputText] = useState('') 
   const [courseList, setCourseList] = useState([]) 
   const [isModalVisible, setModalVisible] = useState(false)
   const [courses, setCourses] = useState(null)
+
 
   const addCourse = () => {
     if (inputText.trim()) {

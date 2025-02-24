@@ -1,26 +1,32 @@
 import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native';
-import React from 'react';
-import { Link } from 'expo-router';
+import React, { useContext, useEffect } from 'react';
+import { Link, useNavigation } from 'expo-router';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import logo from '../assets/images/Logo_white.png';
-
+import UserContext from '@/context/UserContext';
+import cet from '../assets/images/MHTCET.png'
+import cat from '../assets/images/CAT.png'
+import neet from '../assets/images/NEET-icons-04.png'
+import bitsat from '../assets/images/BITS_Pilani-Logo.png'
+import law from '../assets/images/Law.png'
+import jee from '../assets/images/engineer-clipart-process-engineer.png'
+import tw from 'tailwind-react-native-classnames';
+ 
 const options = [
-  { id: '1', exam: 'CET', icon: 'school' },
-  { id: '2', exam: 'JEE', icon: 'assignment' },
-  { id: '3', exam: 'CAT', icon: 'business' },
-  { id: '4', exam: 'NEET', icon: 'local-hospital' },
-  { id: '5', exam: 'BITSAT', icon: 'computer' },
-  { id: '6', exam: 'LAW', icon: 'computer' }
+  { id: '1', exam: 'CET', image: cet },
+  { id: '2', exam: 'JEE', image: jee},
+  { id: '3', exam: 'CAT', image: cat },
+  { id: '4', exam: 'NEET', image: neet },
+  { id: '5', exam: 'BITSAT', image: bitsat },
+  { id: '6', exam: 'LAW', image: law }
 ];
 
 export default function Recommendations() {
+
   return (
     <>
     <View style={styles.header}>
         <Image source={logo} style={styles.logo} />
-        <TouchableOpacity style={styles.profileIcon}>
-          <Icon name="account-circle" size={35} color="#217B58" />
-        </TouchableOpacity>
       </View>
     <SafeAreaView style={styles.container}>
       <View style={styles.innerContainer}>
@@ -29,7 +35,8 @@ export default function Recommendations() {
             <Link href={`/${option.exam}`} key={option.id} style={styles.gridItem}>
               <View style={styles.content}>
                 <View style={styles.iconContainer}>
-                  <Icon name={option.icon} size={32} color="#217B58" />
+                  {/* <Icon name={option.icon} size={32} color="#217B58" /> */}
+                  <Image source={option.image} style={tw`h-16 w-16`}/>
                 </View>
                 <Text style={styles.text}>{option.exam}</Text>
               </View>

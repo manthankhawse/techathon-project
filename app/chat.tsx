@@ -1,11 +1,13 @@
 import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard, Pressable, FlatList, Image, ScrollView } from 'react-native';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import { SafeAreaView } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import bot from "../assets/images/counselor.png";
 import logo from "../assets/images/Logo_white.png";
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import UserContext from '@/context/UserContext';
+import { useNavigation } from 'expo-router';
 
 const GOOGLE_API = "AIzaSyAzrugTIZo4iVH40ZEDDlzfohYmWBBSWQg";
 
@@ -14,6 +16,8 @@ const SYSTEM_PROMPT = 'You are a knowledgeable and empathetic career guidance co
 export default function Chat() {
     const [prompt, setPrompt] = useState("");
     const [loading, setLoading] = useState(false);
+    const {user, logout} = useContext(UserContext);
+
     const [messages, setMessages] = useState([{
         id: 1,
         by: "bot",
@@ -72,9 +76,6 @@ export default function Chat() {
         <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.header}>
         <Image source={logo} style={styles.logo} />
-        {/* <TouchableOpacity style={styles.profileIcon}> */}
-        <Icon name="account-circle" size={40} color="white" marginTop={30} marginRight={25} />
-        {/* </TouchableOpacity> */}
       </View>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>

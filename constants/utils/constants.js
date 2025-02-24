@@ -83,7 +83,7 @@ export const examDetails = {
         ]
       },
     ],
-    API: "http://172.16.132.222:3000/recommend/JEE",
+    API: "http://techathon-backend-ovf9.onrender.com/recommend/JEE",
   },
   CET: {
     fields: [
@@ -116,7 +116,7 @@ export const examDetails = {
         ],
       },
     ],
-    API: "http://172.16.132.222:3000/recommend/CET",
+    API: "http://techathon-backend-ovf9.onrender.com/recommend/CET",
   },
   CAT: {
     fields: [
@@ -142,7 +142,7 @@ export const examDetails = {
         type: "text",
       },
     ],
-    API: "http://172.16.132.222:3000/recommend/CAT",
+    API: "http://techathon-backend-ovf9.onrender.com/recommend/CAT",
   },
   NEET: {
     fields: [
@@ -156,7 +156,7 @@ export const examDetails = {
         type: "text"
       }
     ],
-    API: "http://172.16.132.222:3000/recommend/NEET",
+    API: "http://techathon-backend-ovf9.onrender.com/recommend/NEET",
   },
   BITSAT: {
     fields:[
@@ -185,7 +185,7 @@ export const examDetails = {
         ]
       }
     ],
-    API:"http://172.16.132.222:3000/recommend/BITSAT"
+    API:"http://techathon-backend-ovf9.onrender.com/recommend/BITSAT"
   },
   LAW: {
     fields: [
@@ -199,6 +199,6 @@ export const examDetails = {
         type: "text"
       }
     ],
-    API: "http://172.16.132.222:3000/recommend/LAW",
+    API: "http://techathon-backend-ovf9.onrender.com/recommend/LAW",
   },
 };

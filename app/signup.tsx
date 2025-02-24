@@ -1,10 +1,49 @@
 import { useNavigation } from 'expo-router';
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import logo from '../assets/images/Final_logo.png';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SignUpScreen = () => {
     const navigation = useNavigation();
+
+    // State to manage form inputs and error messages
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSignUp = async () => {
+        if (!email|| !password) {
+            setError('Please fill in both fields.');
+            return;
+        }
+
+        // Create user object to send in API request
+        const userData = { email, password };
+
+        try {
+            // Make the API call to your server (replace with your actual API endpoint)
+            const response = await fetch('http://techathon-backend-ovf9.onrender.com/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            });
+
+            const data = await response.json();
+            console.log(data);
+
+            if (response.ok) {
+                navigation.navigate('login');
+            } else {
+                setError(data.message || 'Signup failed, please try again.');
+            }
+        } catch (err) {
+            console.error(err);
+            setError('An error occurred, please try again.');
+        }
+    };
 
     return (
         <View style={styles.container}>
@@ -15,23 +54,37 @@ const SignUpScreen = () => {
             <View style={styles.card}>
                 <Text style={styles.header}>Sign Up</Text>
 
+                {/* Error Message */}
+                {error && <Text style={styles.errorText}>{error}</Text>}
+
                 {/* Username Field */}
-                <Text style={styles.label}>Username</Text>
-                <TextInput style={styles.input} placeholder="Username" />
+                <Text style={styles.label}>Email</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Email"
+                    value={email}
+                    onChangeText={setEmail}
+                />
 
                 {/* Password Field */}
                 <Text style={styles.label}>Password</Text>
-                <TextInput style={styles.input} placeholder="Password" secureTextEntry />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Password"
+                    secureTextEntry
+                    value={password}
+                    onChangeText={setPassword}
+                />
 
                 {/* Sign-Up Button */}
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={handleSignUp}>
                     <Text style={styles.buttonText}>Sign Up</Text>
                 </TouchableOpacity>
 
                 {/* Redirect to Log In */}
                 <Text style={styles.footerText}>
                     Already have an account?{' '}
-                    <Text style={styles.linkText} onPress={() => navigation.navigate("login")}>
+                    <Text style={styles.linkText} onPress={() => navigation.navigate('login')}>
                         Log In
                     </Text>
                 </Text>
@@ -104,6 +157,10 @@ const styles = StyleSheet.create({
     linkText: {
         color: '#006400',
         fontWeight: 'bold',
+    },
+    errorText: {
+        color: 'red',
+        marginBottom: 10,
     },
 });
 

@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image,StyleSheet, ScrollView } from "react-native";
 import logo from '../assets/images/Logo_white.png';
 import Icon from "react-native-vector-icons/MaterialIcons";
-import { Link } from 'expo-router';
+import { Link, useNavigation } from 'expo-router';
+import UserContext from "@/context/UserContext";
 
 const contact = () => {
+
   return (
     <>
         <View style={styles.header}>
                 <Image source={logo} style={styles.logo} />
-                {/* <TouchableOpacity style={styles.profileIcon}> */}
-                  <Icon name="account-circle" size={40} color="white"  marginTop={30} />
-                {/* </TouchableOpacity> */}
               </View>
     <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
       

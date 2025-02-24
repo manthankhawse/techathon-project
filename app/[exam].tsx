@@ -369,13 +369,14 @@
 //   },
 // });
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, TextInput, Platform, StyleSheet, TouchableOpacity, Modal, ScrollView, Image, KeyboardAvoidingView } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams, useNavigation } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { examDetails } from '../constants/utils/constants';
 import logo from '../assets/images/Logo_white.png';
 import Icon from "react-native-vector-icons/MaterialIcons";
+import UserContext from '@/context/UserContext';
 
 const MultiSelect = ({ options, value, onChange }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -492,6 +493,15 @@ const SingleSelect = ({ options, value, onChange }) => {
 export default function Exam() {
   const { exam } = useLocalSearchParams();
   const examData = examDetails[exam];
+  const navigation = useNavigation();
+  
+  const {user, logout} = useContext(UserContext);
+
+  useEffect(() => {
+    if(!user){
+      navigation.navigate("login");
+    }
+  }, [user])
 
   const [formData, setFormData] = useState({
     programs: [] // Initialize programs as an empty array
@@ -557,9 +567,7 @@ useEffect(() => {
     <>
       <View style={styles.header}>
         <Image source={logo} style={styles.logo} />
-        {/* <TouchableOpacity style={styles.profileIcon}> */}
-        <Icon name="account-circle" size={40} color="white" marginTop={30} marginRight={25} />
-        {/* </TouchableOpacity> */}
+
       </View>
       <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
