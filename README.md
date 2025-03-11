@@ -1,6 +1,18 @@
-# Welcome to your Expo app 👋
+# Welcome to ACADME app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+
+This is ACADME, a career counselling app. 
+
+The app provides you with three services:-
+
+1) It predicts the possible course and college based on the merit, category and intrest 
+
+2) It comes with an AI integrated chatbot used for qsking career related queries 
+
+3) It also recommends free and paid certified courses based on the user's domain of intrest
+
+
+ [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
 
