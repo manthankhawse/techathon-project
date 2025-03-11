@@ -7,10 +7,10 @@ export default function Message({ item }) {
   // Process the message before displaying it
   const processMessage = (text) => {
     let processedText = [];
-    
+
     // Example of handling **bold** text. We'll split based on **
     const parts = text.split("**");
-    
+
     parts.forEach((part, index) => {
       if (index % 2 === 0) {
         // Regular text
@@ -20,20 +20,20 @@ export default function Message({ item }) {
         processedText.push(<Text key={index} style={styles.boldText}>{part}</Text>);
       }
     });
-    
+
     return processedText;
   }
 
   return (
     <>
-    <View>
-    { item.by==="bot" && (<Image style={tw`h-10 w-10`} source={counselor}/>)}
-    <View style={[styles.messageItem, item.by === "bot" ? styles.botMessage : styles.userMessage]}>
-      <Text style={styles.messageText}>
-        {processMessage(item.text)}
-      </Text>
-    </View>
-    </View>
+      <View>
+        {item.by === "bot" && (<Image style={tw`h-10 w-10`} source={counselor} />)}
+        <View style={[styles.messageItem, item.by === "bot" ? styles.botMessage : styles.userMessage]}>
+          <Text style={styles.messageText}>
+            {processMessage(item.text)}
+          </Text>
+        </View>
+      </View>
     </>
   )
 }
@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
   messageArea: {
     backgroundColor: 'green',
     flex: 1,
-    padding: 30,
-    justifyContent:'flex-start'
+    padding: 31,
+    justifyContent: 'flex-start'
   },
   messageItem: {
     marginBottom: 10,
